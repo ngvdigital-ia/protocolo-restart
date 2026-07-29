@@ -1,0 +1,4 @@
+_reference/
+.playwright-cli/
+_shots/
+output/playwright/
