@@ -4,13 +4,6 @@
 
   if (review) {
     document.documentElement.classList.add('preview-offer');
-    const notice = document.createElement('aside');
-    notice.className = 'review-banner';
-    notice.setAttribute('role', 'status');
-    notice.textContent = document.documentElement.lang === 'fr'
-      ? 'MODE RÉVISION — le contenu post-pitch est visible uniquement pour validation.'
-      : 'REVIEW MODE — post-pitch content is visible only for content approval.';
-    document.body.prepend(notice);
   }
 
   const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
