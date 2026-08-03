@@ -10,8 +10,10 @@
   let revealScheduled = false;
 
   document.addEventListener('player:ready', (event) => {
-    const player = event.detail;
-    const configId = player && player.config && player.config.id;
+    const detail = event.detail || {};
+    const config = detail.config || {};
+    const player = detail.player || document.querySelector('#vid-6a70aeed9fc79f7cf8cb1795');
+    const configId = config.id || (player && player.config && player.config.id);
     const normalizedId = typeof configId === 'string'
       ? `vid-${configId.replace(/^vid-/, '')}`
       : '';
