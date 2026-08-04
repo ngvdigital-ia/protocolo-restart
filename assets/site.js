@@ -4,6 +4,9 @@
 
   if (review) {
     document.documentElement.classList.add('preview-offer');
+    document.querySelectorAll('.esconder').forEach((element) => {
+      element.classList.remove('esconder');
+    });
   }
 
   const targetPlayerId = 'vid-6a70aeed9fc79f7cf8cb1795';
