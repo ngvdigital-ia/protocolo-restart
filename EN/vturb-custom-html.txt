@@ -1,10 +1,2 @@
-<div id="protocolo-restart-vturb-en"></div>
-<script>
-(() => {
-  const target = document.getElementById('protocolo-restart-vturb-en');
-  fetch('https://protocolorestart.online/EN/post-pitch-vturb.html', { cache: 'no-store' })
-    .then((response) => response.ok ? response.text() : Promise.reject(response.status))
-    .then((html) => { target.innerHTML = html; })
-    .catch(() => { target.textContent = 'Unable to load the offer content. Please refresh the page.'; });
-})();
-</script>
+<iframe id="protocolo-restart-vturb-en" src="https://protocolorestart.online/EN/post-pitch-vturb.html" style="display:block;width:100%;height:20000px;border:0;overflow:hidden" scrolling="no"></iframe>
+<style>@media(max-width:600px){#protocolo-restart-vturb-en{height:28000px!important}}</style>
