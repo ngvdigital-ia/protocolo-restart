@@ -18,9 +18,15 @@
 
     if (normalizedId !== targetPlayerId || revealScheduled || typeof player.displayHiddenElements !== 'function') return false;
 
-    revealScheduled = true;
-    player.displayHiddenElements(1254, ['.esconder'], { persist: true });
-    return true;
+    try {
+      player.displayHiddenElements(1254, ['.esconder'], { persist: true });
+      revealScheduled = true;
+      return true;
+    } catch (_) {
+      // The custom element can expose its API before VTurb finishes its setup.
+      // Keep polling until the player accepts the post-pitch registration.
+      return false;
+    }
   };
 
   document.addEventListener('player:ready', (event) => {
