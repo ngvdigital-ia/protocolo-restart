@@ -9,20 +9,25 @@
     });
   }
 
-  const targetPlayerId = 'vid-6a70aeed9fc79f7cf8cb1795';
+  const postPitchTimes = {
+    'vid-6a70aeed9fc79f7cf8cb1795': 1254,
+    'vid-6a72439d0cbcf5f08f9d0533': 1301,
+  };
+  const playerSelector = Object.keys(postPitchTimes).map((id) => `#${id}`).join(',');
   let revealScheduled = false;
 
   const schedulePostPitchReveal = (candidate) => {
-    const player = candidate || document.querySelector(`#${targetPlayerId}`);
+    const player = candidate || document.querySelector(playerSelector);
     const configId = (player && player.config && player.config.id) || (player && player.id);
     const normalizedId = typeof configId === 'string'
       ? `vid-${configId.replace(/^vid-/, '')}`
       : '';
 
-    if (normalizedId !== targetPlayerId || revealScheduled || typeof player.displayHiddenElements !== 'function') return false;
+    const postPitchTime = postPitchTimes[normalizedId];
+    if (!postPitchTime || revealScheduled || typeof player.displayHiddenElements !== 'function') return false;
 
     try {
-      player.displayHiddenElements(1254, ['.esconder'], { persist: true });
+      player.displayHiddenElements(postPitchTime, ['.esconder'], { persist: true });
       revealScheduled = true;
       return true;
     } catch (_) {
