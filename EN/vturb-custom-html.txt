@@ -1,2 +1,0 @@
-<iframe id="protocolo-restart-vturb-en" src="https://protocolorestart.online/EN/post-pitch-vturb.html" style="display:block;width:100%;height:20000px;border:0;overflow:hidden" scrolling="no"></iframe>
-<style>@media(max-width:600px){#protocolo-restart-vturb-en{height:28000px!important}}</style>
